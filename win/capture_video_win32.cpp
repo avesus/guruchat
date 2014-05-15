@@ -106,10 +106,10 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 # endif
 
 # ifdef HI_Q_W_320 // 640x480 hi-q
-# define FRAME_RESOLUTION_NUMBER 6
+# define FRAME_RESOLUTION_NUMBER 4
 # define VP8_QP_MAX 31
 # define VP8_QP_MIN 1
-# define VP8_KBITS_PER_SEC 4000///350 //700
+# define VP8_KBITS_PER_SEC 300///350 //700
 //# define VP8_CPU_USE -3
 # define VP8_CPU_USE -15
 //# define MAX_KEYFRAME_DIST 999999
