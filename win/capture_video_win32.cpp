@@ -65,11 +65,11 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 #define SHOW_STATS
 //# define BYPASS
 # define YUV_BILINEAR
-# define CODEC_FPS 3
+# define CODEC_FPS 30
 //# define DROP_30_TO_25 99999999// 6
 
 // show first 1 in DROP_30_TO_3 frames
-# define DROP_30_TO_3 10 //10
+//# define DROP_30_TO_3 10 //10
 //# define MAXFRAME 5000 //(1480-28)
 //# define DROPFRAMEBEFORE 107
 //# define DROPFRAMESHOW 7
@@ -81,13 +81,15 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 // soft mtu
 //# define MTU_PROFILE // 64k (up to 120k)
 // hard mtu
-//# define MTU_HI_PROFILE
+// # define MTU_HI_PROFILE
+
+# define HI_Q_W_320
 
 // soft gprs
 //# define GPRS_PROFILE // 30k (up to 50)
 
 // hard gprs, needs 3 FPS
-# define MTU_LO_PROFILE
+//# define MTU_LO_PROFILE
 
 
 //# define USE_THEORA 1 // 16k
@@ -99,6 +101,17 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 # define VP8_QP_MIN 2
 # define VP8_KBITS_PER_SEC 1//700
 # define VP8_CPU_USE -6
+//# define MAX_KEYFRAME_DIST 999999
+// VBR!!!
+# endif
+
+# ifdef HI_Q_W_320 // 640x480 hi-q
+# define FRAME_RESOLUTION_NUMBER 6
+# define VP8_QP_MAX 31
+# define VP8_QP_MIN 1
+# define VP8_KBITS_PER_SEC 4000///350 //700
+//# define VP8_CPU_USE -3
+# define VP8_CPU_USE -15
 //# define MAX_KEYFRAME_DIST 999999
 // VBR!!!
 # endif
@@ -445,7 +458,7 @@ unsigned int __stdcall RenderThread(void*)
     if(pcktsiz>MAXFRAME)
     {
       // drop packet
-      packetToDecode = &emptyPacket;
+      //packetToDecode = &emptyPacket;
       encPacket = 0;
       vp8compressedSize = 0;
       if(firstTime)

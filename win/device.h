@@ -73,6 +73,7 @@
 
 class IDevice;
 class IDeviceInfo;
+class IDeviceSupply;
 
 enum EOnOffBehavior
 {

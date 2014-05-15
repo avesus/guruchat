@@ -1,4 +1,4 @@
-# include "audiostream.h"
+# include "audio_capture.h"
 # define INITGUID
 # include <dsound.h>
 # pragma comment(lib, "dsound")

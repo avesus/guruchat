@@ -7,7 +7,7 @@ extern "C"
 # include "./../thirdparty/oslec/spandsp-0.0.3/src/msvc/inttypes.h"
 }
 
-# include "audiostream.h"
+# include "audio_capture.h"
 # include <malloc.h>
 # include <intrin.h>
 
@@ -149,7 +149,7 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, wchar_t*, int)
 
   //DetermineExternalAddress();
 
-  CaptureAudio();
+  // CaptureAudio();
 
   short bufIn[320];
 
