@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "guruchat", "guruchat.vcproj", "{0A8D68CF-EB30-41CC-AB72-CA726F992C54}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0F1A752-5BBA-40B3-8295-E15C531BC1E7} = {C0F1A752-5BBA-40B3-8295-E15C531BC1E7}
+		{927B2695-2D8C-4FC3-9D85-BA539F09B1BC} = {927B2695-2D8C-4FC3-9D85-BA539F09B1BC}
+		{DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74} = {DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74}
+		{6CFCD5F3-2FAE-4BE9-A0A1-6D98305B074F} = {6CFCD5F3-2FAE-4BE9-A0A1-6D98305B074F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vpx", "libvpx\vpx.vcproj", "{DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E1360C65-D375-4335-8057-7ED99CC3F9B2} = {E1360C65-D375-4335-8057-7ED99CC3F9B2}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "obj_int_extract", "libvpx\obj_int_extract.vcproj", "{E1360C65-D375-4335-8057-7ED99CC3F9B2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opus", "opus\opus.vcproj", "{C0F1A752-5BBA-40B3-8295-E15C531BC1E7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "codec2", "codec2\codec2.vcproj", "{927B2695-2D8C-4FC3-9D85-BA539F09B1BC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "oslec", "oslec\oslec.vcproj", "{6CFCD5F3-2FAE-4BE9-A0A1-6D98305B074F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libyuv", "libyuv\libyuv.vcproj", "{63129A24-3826-4057-AE2F-97E07BCB2F7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A8D68CF-EB30-41CC-AB72-CA726F992C54}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0A8D68CF-EB30-41CC-AB72-CA726F992C54}.Debug|Win32.Build.0 = Debug|Win32
+		{0A8D68CF-EB30-41CC-AB72-CA726F992C54}.Release|Win32.ActiveCfg = Release|Win32
+		{0A8D68CF-EB30-41CC-AB72-CA726F992C54}.Release|Win32.Build.0 = Release|Win32
+		{DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74}.Debug|Win32.Build.0 = Debug|Win32
+		{DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74}.Release|Win32.ActiveCfg = Release|Win32
+		{DCE19DAF-69AC-46DB-B14A-39F0FAA5DB74}.Release|Win32.Build.0 = Release|Win32
+		{E1360C65-D375-4335-8057-7ED99CC3F9B2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E1360C65-D375-4335-8057-7ED99CC3F9B2}.Debug|Win32.Build.0 = Debug|Win32
+		{E1360C65-D375-4335-8057-7ED99CC3F9B2}.Release|Win32.ActiveCfg = Release|Win32
+		{E1360C65-D375-4335-8057-7ED99CC3F9B2}.Release|Win32.Build.0 = Release|Win32
+		{C0F1A752-5BBA-40B3-8295-E15C531BC1E7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C0F1A752-5BBA-40B3-8295-E15C531BC1E7}.Debug|Win32.Build.0 = Debug|Win32
+		{C0F1A752-5BBA-40B3-8295-E15C531BC1E7}.Release|Win32.ActiveCfg = Release|Win32
+		{C0F1A752-5BBA-40B3-8295-E15C531BC1E7}.Release|Win32.Build.0 = Release|Win32
+		{927B2695-2D8C-4FC3-9D85-BA539F09B1BC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{927B2695-2D8C-4FC3-9D85-BA539F09B1BC}.Debug|Win32.Build.0 = Debug|Win32
+		{927B2695-2D8C-4FC3-9D85-BA539F09B1BC}.Release|Win32.ActiveCfg = Release|Win32
+		{927B2695-2D8C-4FC3-9D85-BA539F09B1BC}.Release|Win32.Build.0 = Release|Win32
+		{6CFCD5F3-2FAE-4BE9-A0A1-6D98305B074F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6CFCD5F3-2FAE-4BE9-A0A1-6D98305B074F}.Debug|Win32.Build.0 = Debug|Win32
+		{6CFCD5F3-2FAE-4BE9-A0A1-6D98305B074F}.Release|Win32.ActiveCfg = Release|Win32
+		{6CFCD5F3-2FAE-4BE9-A0A1-6D98305B074F}.Release|Win32.Build.0 = Release|Win32
+		{63129A24-3826-4057-AE2F-97E07BCB2F7C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{63129A24-3826-4057-AE2F-97E07BCB2F7C}.Debug|Win32.Build.0 = Debug|Win32
+		{63129A24-3826-4057-AE2F-97E07BCB2F7C}.Release|Win32.ActiveCfg = Release|Win32
+		{63129A24-3826-4057-AE2F-97E07BCB2F7C}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE1834DE191A91460006A0E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1834DD191A91460006A0E7 /* Foundation.framework */; };
+		DE1834E0191A91460006A0E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1834DF191A91460006A0E7 /* CoreGraphics.framework */; };
+		DE1834E2191A91460006A0E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1834E1191A91460006A0E7 /* UIKit.framework */; };
+		DE1834E4191A91460006A0E7 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1834E3191A91460006A0E7 /* GLKit.framework */; };
+		DE1834E6191A91460006A0E7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1834E5191A91460006A0E7 /* OpenGLES.framework */; };
+		DE1834EC191A91460006A0E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE1834EA191A91460006A0E7 /* InfoPlist.strings */; };
+		DE1834EE191A91460006A0E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1834ED191A91460006A0E7 /* main.m */; };
+		DE1834F2191A91460006A0E7 /* AGCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1834F1191A91460006A0E7 /* AGCAppDelegate.m */; };
+		DE1834F5191A91460006A0E7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1834F3191A91460006A0E7 /* Main_iPhone.storyboard */; };
+		DE1834F8191A91460006A0E7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1834F6191A91460006A0E7 /* Main_iPad.storyboard */; };
+		DE1834FA191A91460006A0E7 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = DE1834F9191A91460006A0E7 /* Shader.fsh */; };
+		DE1834FC191A91460006A0E7 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = DE1834FB191A91460006A0E7 /* Shader.vsh */; };
+		DE1834FF191A91460006A0E7 /* AGCViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE1834FE191A91460006A0E7 /* AGCViewController.mm */; };
+		DE183501191A91460006A0E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE183500191A91460006A0E7 /* Images.xcassets */; };
+		DE183508191A91460006A0E7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE183507191A91460006A0E7 /* XCTest.framework */; };
+		DE183509191A91460006A0E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1834DD191A91460006A0E7 /* Foundation.framework */; };
+		DE18350A191A91460006A0E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE1834E1191A91460006A0E7 /* UIKit.framework */; };
+		DE183512191A91460006A0E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE183510191A91460006A0E7 /* InfoPlist.strings */; };
+		DE183514191A91460006A0E7 /* guruchatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE183513191A91460006A0E7 /* guruchatTests.m */; };
+		DE183523191BF0A00006A0E7 /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE183521191BEF400006A0E7 /* libvpx.a */; };
+		DE183592191C03900006A0E7 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE183591191C03900006A0E7 /* libyuv.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE18350B191A91460006A0E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE1834D2191A91460006A0E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE1834D9191A91460006A0E7;
+			remoteInfo = guruchat;
+		};
+		DE1835A1191C05970006A0E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE18359C191C05970006A0E7 /* yuv.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DE18352D191BF6CD0006A0E7;
+			remoteInfo = yuv;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DE1834DA191A91460006A0E7 /* guruchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guruchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE1834DD191A91460006A0E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DE1834DF191A91460006A0E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DE1834E1191A91460006A0E7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DE1834E3191A91460006A0E7 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		DE1834E5191A91460006A0E7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		DE1834E9191A91460006A0E7 /* guruchat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "guruchat-Info.plist"; sourceTree = "<group>"; };
+		DE1834EB191A91460006A0E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE1834ED191A91460006A0E7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE1834EF191A91460006A0E7 /* guruchat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "guruchat-Prefix.pch"; sourceTree = "<group>"; };
+		DE1834F0191A91460006A0E7 /* AGCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGCAppDelegate.h; sourceTree = "<group>"; };
+		DE1834F1191A91460006A0E7 /* AGCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGCAppDelegate.m; sourceTree = "<group>"; };
+		DE1834F4191A91460006A0E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		DE1834F7191A91460006A0E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		DE1834F9191A91460006A0E7 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		DE1834FB191A91460006A0E7 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		DE1834FD191A91460006A0E7 /* AGCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGCViewController.h; sourceTree = "<group>"; };
+		DE1834FE191A91460006A0E7 /* AGCViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AGCViewController.mm; sourceTree = "<group>"; };
+		DE183500191A91460006A0E7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DE183506191A91460006A0E7 /* guruchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = guruchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE183507191A91460006A0E7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DE18350F191A91460006A0E7 /* guruchatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "guruchatTests-Info.plist"; sourceTree = "<group>"; };
+		DE183511191A91460006A0E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE183513191A91460006A0E7 /* guruchatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = guruchatTests.m; sourceTree = "<group>"; };
+		DE183521191BEF400006A0E7 /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = libvpx/libvpx.a; sourceTree = "<group>"; };
+		DE183591191C03900006A0E7 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyuv.a; path = "../../../Library/Developer/Xcode/DerivedData/guruchat-corqbezcqkwyykcexlftwhqydldr/Build/Products/Debug-iphoneos/libyuv.a"; sourceTree = "<group>"; };
+		DE18359C191C05970006A0E7 /* yuv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = yuv.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE1834D7191A91460006A0E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE183592191C03900006A0E7 /* libyuv.a in Frameworks */,
+				DE183523191BF0A00006A0E7 /* libvpx.a in Frameworks */,
+				DE1834E6191A91460006A0E7 /* OpenGLES.framework in Frameworks */,
+				DE1834E0191A91460006A0E7 /* CoreGraphics.framework in Frameworks */,
+				DE1834E2191A91460006A0E7 /* UIKit.framework in Frameworks */,
+				DE1834E4191A91460006A0E7 /* GLKit.framework in Frameworks */,
+				DE1834DE191A91460006A0E7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE183503191A91460006A0E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE183508191A91460006A0E7 /* XCTest.framework in Frameworks */,
+				DE18350A191A91460006A0E7 /* UIKit.framework in Frameworks */,
+				DE183509191A91460006A0E7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE1834D1191A91460006A0E7 = {
+			isa = PBXGroup;
+			children = (
+				DE18359C191C05970006A0E7 /* yuv.xcodeproj */,
+				DE1834E7191A91460006A0E7 /* guruchat */,
+				DE18350D191A91460006A0E7 /* guruchatTests */,
+				DE1834DC191A91460006A0E7 /* Frameworks */,
+				DE1834DB191A91460006A0E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE1834DB191A91460006A0E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE1834DA191A91460006A0E7 /* guruchat.app */,
+				DE183506191A91460006A0E7 /* guruchatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE1834DC191A91460006A0E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE183591191C03900006A0E7 /* libyuv.a */,
+				DE183521191BEF400006A0E7 /* libvpx.a */,
+				DE1834DD191A91460006A0E7 /* Foundation.framework */,
+				DE1834DF191A91460006A0E7 /* CoreGraphics.framework */,
+				DE1834E1191A91460006A0E7 /* UIKit.framework */,
+				DE1834E3191A91460006A0E7 /* GLKit.framework */,
+				DE1834E5191A91460006A0E7 /* OpenGLES.framework */,
+				DE183507191A91460006A0E7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE1834E7191A91460006A0E7 /* guruchat */ = {
+			isa = PBXGroup;
+			children = (
+				DE1834F0191A91460006A0E7 /* AGCAppDelegate.h */,
+				DE1834F1191A91460006A0E7 /* AGCAppDelegate.m */,
+				DE1834F3191A91460006A0E7 /* Main_iPhone.storyboard */,
+				DE1834F6191A91460006A0E7 /* Main_iPad.storyboard */,
+				DE1834F9191A91460006A0E7 /* Shader.fsh */,
+				DE1834FB191A91460006A0E7 /* Shader.vsh */,
+				DE1834FD191A91460006A0E7 /* AGCViewController.h */,
+				DE1834FE191A91460006A0E7 /* AGCViewController.mm */,
+				DE183500191A91460006A0E7 /* Images.xcassets */,
+				DE1834E8191A91460006A0E7 /* Supporting Files */,
+			);
+			path = guruchat;
+			sourceTree = "<group>";
+		};
+		DE1834E8191A91460006A0E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE1834E9191A91460006A0E7 /* guruchat-Info.plist */,
+				DE1834EA191A91460006A0E7 /* InfoPlist.strings */,
+				DE1834ED191A91460006A0E7 /* main.m */,
+				DE1834EF191A91460006A0E7 /* guruchat-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE18350D191A91460006A0E7 /* guruchatTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE183513191A91460006A0E7 /* guruchatTests.m */,
+				DE18350E191A91460006A0E7 /* Supporting Files */,
+			);
+			path = guruchatTests;
+			sourceTree = "<group>";
+		};
+		DE18350E191A91460006A0E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE18350F191A91460006A0E7 /* guruchatTests-Info.plist */,
+				DE183510191A91460006A0E7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE18359D191C05970006A0E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE1835A2191C05970006A0E7 /* libyuv.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE1834D9191A91460006A0E7 /* guruchat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE183517191A91460006A0E7 /* Build configuration list for PBXNativeTarget "guruchat" */;
+			buildPhases = (
+				DE1834D6191A91460006A0E7 /* Sources */,
+				DE1834D7191A91460006A0E7 /* Frameworks */,
+				DE1834D8191A91460006A0E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = guruchat;
+			productName = guruchat;
+			productReference = DE1834DA191A91460006A0E7 /* guruchat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DE183505191A91460006A0E7 /* guruchatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE18351A191A91460006A0E7 /* Build configuration list for PBXNativeTarget "guruchatTests" */;
+			buildPhases = (
+				DE183502191A91460006A0E7 /* Sources */,
+				DE183503191A91460006A0E7 /* Frameworks */,
+				DE183504191A91460006A0E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE18350C191A91460006A0E7 /* PBXTargetDependency */,
+			);
+			name = guruchatTests;
+			productName = guruchatTests;
+			productReference = DE183506191A91460006A0E7 /* guruchatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE1834D2191A91460006A0E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AGC;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = aeonsoftech;
+				TargetAttributes = {
+					DE183505191A91460006A0E7 = {
+						TestTargetID = DE1834D9191A91460006A0E7;
+					};
+				};
+			};
+			buildConfigurationList = DE1834D5191A91460006A0E7 /* Build configuration list for PBXProject "guruchat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DE1834D1191A91460006A0E7;
+			productRefGroup = DE1834DB191A91460006A0E7 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DE18359D191C05970006A0E7 /* Products */;
+					ProjectRef = DE18359C191C05970006A0E7 /* yuv.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				DE1834D9191A91460006A0E7 /* guruchat */,
+				DE183505191A91460006A0E7 /* guruchatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DE1835A2191C05970006A0E7 /* libyuv.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyuv.a;
+			remoteRef = DE1835A1191C05970006A0E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE1834D8191A91460006A0E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE1834FA191A91460006A0E7 /* Shader.fsh in Resources */,
+				DE1834F8191A91460006A0E7 /* Main_iPad.storyboard in Resources */,
+				DE1834F5191A91460006A0E7 /* Main_iPhone.storyboard in Resources */,
+				DE183501191A91460006A0E7 /* Images.xcassets in Resources */,
+				DE1834EC191A91460006A0E7 /* InfoPlist.strings in Resources */,
+				DE1834FC191A91460006A0E7 /* Shader.vsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE183504191A91460006A0E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE183512191A91460006A0E7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE1834D6191A91460006A0E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE1834F2191A91460006A0E7 /* AGCAppDelegate.m in Sources */,
+				DE1834EE191A91460006A0E7 /* main.m in Sources */,
+				DE1834FF191A91460006A0E7 /* AGCViewController.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE183502191A91460006A0E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE183514191A91460006A0E7 /* guruchatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE18350C191A91460006A0E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE1834D9191A91460006A0E7 /* guruchat */;
+			targetProxy = DE18350B191A91460006A0E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DE1834EA191A91460006A0E7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE1834EB191A91460006A0E7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DE1834F3191A91460006A0E7 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE1834F4191A91460006A0E7 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		DE1834F6191A91460006A0E7 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE1834F7191A91460006A0E7 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		DE183510191A91460006A0E7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE183511191A91460006A0E7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE183515191A91460006A0E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-I./../thirdparty/libyuv/include";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
+			};
+			name = Debug;
+		};
+		DE183516191A91460006A0E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LLVM_LTO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-I./../thirdparty/libyuv/include";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
+			};
+			name = Release;
+		};
+		DE183518191A91460006A0E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "guruchat/guruchat-Prefix.pch";
+				INFOPLIST_FILE = "guruchat/guruchat-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libvpx",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/guruchat-corqbezcqkwyykcexlftwhqydldr/Build/Products/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DE183519191A91460006A0E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "guruchat/guruchat-Prefix.pch";
+				INFOPLIST_FILE = "guruchat/guruchat-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libvpx",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/guruchat-corqbezcqkwyykcexlftwhqydldr/Build/Products/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DE18351B191A91460006A0E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/guruchat.app/guruchat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "guruchat/guruchat-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "guruchatTests/guruchatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		DE18351C191A91460006A0E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/guruchat.app/guruchat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "guruchat/guruchat-Prefix.pch";
+				INFOPLIST_FILE = "guruchatTests/guruchatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE1834D5191A91460006A0E7 /* Build configuration list for PBXProject "guruchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE183515191A91460006A0E7 /* Debug */,
+				DE183516191A91460006A0E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE183517191A91460006A0E7 /* Build configuration list for PBXNativeTarget "guruchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE183518191A91460006A0E7 /* Debug */,
+				DE183519191A91460006A0E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE18351A191A91460006A0E7 /* Build configuration list for PBXNativeTarget "guruchatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE18351B191A91460006A0E7 /* Debug */,
+				DE18351C191A91460006A0E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE1834D2191A91460006A0E7 /* Project object */;
+}

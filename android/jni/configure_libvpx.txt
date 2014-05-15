@@ -1,0 +1,1 @@
+./libvpx/configure --target=armv5te-android-gcc --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --sdk-path=/Users/avesus/Development/android-ndk-r9d --disable-webm-io --disable-shared -—enable-static

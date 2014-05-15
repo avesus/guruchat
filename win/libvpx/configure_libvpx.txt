@@ -1,0 +1,1 @@
+./../../android/jni/libvpx/configure --target=x86-win32-vs9 --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --disable-webm-io --enable-runtime-cpu-detect

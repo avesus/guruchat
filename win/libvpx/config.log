@@ -1,0 +1,66 @@
+# ./../../android/jni/libvpx/configure --target=x86-win32-vs9 --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --disable-webm-io --enable-runtime-cpu-detect
+Configuring selected codecs
+  enabling vp8_encoder
+  enabling vp8_decoder
+Configuring for target 'x86-win32-vs9'
+  enabling x86
+check_cpp
+BEGIN /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+     1	#ifndef __ILP32__
+     2	#error "not x32"
+     3	#endif
+END /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+-E -o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+./../../android/jni/libvpx/build/make/configure.sh: line 286: -E: command not found
+  disabling avx
+  disabling avx2
+  enabling runtime_cpu_detect
+  enabling mmx
+  enabling sse
+  enabling sse2
+  enabling sse3
+  enabling ssse3
+  enabling sse4_1
+  using msvs
+check_cxxflags -O3
+check_cxx -Werror -O3
+BEGIN /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.cc
+     1	int x;
+END /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.cc
+-Werror -O3 -c -o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.cc
+./../../android/jni/libvpx/build/make/configure.sh: line 286: -Werror: command not found
+check_cflags -O3
+check_cc -Werror -O3
+BEGIN /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+     1	int x;
+END /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+-Werror -O3 -c -o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+./../../android/jni/libvpx/build/make/configure.sh: line 286: -Werror: command not found
+  enabling use_x86inc
+check_cc
+BEGIN /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+     1	    unsigned int e = 'O'<<24 | '2'<<16 | 'B'<<8 | 'E';
+END /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+-c -o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+./../../android/jni/libvpx/build/make/configure.sh: line 286: -c: command not found
+check_cc
+BEGIN /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+     1	    static inline function() {}
+END /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+-c -o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+./../../android/jni/libvpx/build/make/configure.sh: line 286: -c: command not found
+check_cc
+BEGIN /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+     1	    static __attribute__((always_inline)) function() {}
+END /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+-c -o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.o /var/folders/5y/sqb03sj90qxbqqpcsxy423nh0000gn/T//vpx-conf-32633-27802.c
+./../../android/jni/libvpx/build/make/configure.sh: line 286: -c: command not found
+  disabling ccache
+  enabling postproc
+  enabling unit_tests
+fake_check_header stdio.h
+fake_check_header stdint.h
+fake_check_header pthread.h
+fake_check_header sys/mman.h
+fake_check_header unistd.h
+fake_check_header vpx/vpx_integer.h -I./../../android/jni/libvpx

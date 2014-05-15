@@ -1,0 +1,1 @@
+./../../android/jni/libvpx/configure --target=armv7-darwin-gcc --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --disable-webm-io
