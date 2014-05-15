@@ -34,3 +34,12 @@ win/oslec/Release
 win/Release
 win/Win32
 BuildConfig.java
+android/vp8_rtcd.h
+android/vpx_scale_rtcd.h
+android/vpx_version.h
+android/jni/armeabi/ads2gas/libvpx/vp8/encoder/arm/armv5te/boolhuff_armv5te.asm.s
+android/jni/armeabi/ads2gas/libvpx/vp8/encoder/arm/armv5te/vp8_packtokens_armv5.asm.s
+android/jni/armeabi/ads2gas/libvpx/vp8/encoder/arm/armv5te/vp8_packtokens_mbrow_armv5.asm.s
+android/jni/armeabi/ads2gas/libvpx/vp8/encoder/arm/armv5te/vp8_packtokens_partitions_armv5.asm.s
+android/jni/armeabi/ads2gas/vp8_asm_enc_offsets.asm
+android/jni/armeabi/ads2gas/vp8_asm_enc_offsets.c.S

@@ -3,6 +3,7 @@ TARGET_PLATFORM := android-10
 
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../
 include jni/libvpx/build/make/Android.mk
 
 #LOCAL_PATH := $(call my-dir)
