@@ -1,0 +1,12 @@
+[submodule "android/jni/libvpx"]
+	path = android/jni/libvpx
+	url = https://chromium.googlesource.com/webm/libvpx
+[submodule "thirdparty/codec2"]
+	path = thirdparty/codec2
+	url = https://github.com/freedv/codec2.git
+[submodule "thirdparty/opus"]
+	path = thirdparty/opus
+	url = git://git.opus-codec.org/opus.git
+[submodule "thirdparty/libyuv"]
+	path = thirdparty/libyuv
+	url = https://chromium.googlesource.com/external/libyuv/
