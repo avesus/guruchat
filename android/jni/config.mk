@@ -11,17 +11,17 @@ ALL_TARGETS += libs
 
 PREFIX=/usr/local
 ifeq ($(MAKECMDGOALS),dist)
-DIST_DIR?=vpx-vp8-nodocs-armv5te-android-v1.3.0-2663-g0d27c74
+DIST_DIR?=vpx-vp8-nodocs-armv5te-android-v1.3.0
 else
 DIST_DIR?=$(DESTDIR)/usr/local
 endif
 LIBSUBDIR=lib
 
-VERSION_STRING=v1.3.0-2663-g0d27c74
+VERSION_STRING=v1.3.0
 
 VERSION_MAJOR=1
 VERSION_MINOR=3
 VERSION_PATCH=0
 
-CONFIGURE_ARGS=--target=armv5te-android-gcc --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --sdk-path=/Users/avesus/Development/android-ndk-r9d --disable-webm-io --disable-shared
-CONFIGURE_ARGS?=--target=armv5te-android-gcc --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --sdk-path=/Users/avesus/Development/android-ndk-r9d --disable-webm-io --disable-shared
+CONFIGURE_ARGS=--target=armv5te-android-gcc --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --sdk-path=/Users/avesus/Development/android-ndk-r9d --disable-webm-io --disable-shared --enable-static --disable-runtime-cpu-detect --disable-neon
+CONFIGURE_ARGS?=--target=armv5te-android-gcc --disable-examples --disable-vp9 --disable-docs --disable-install-libs --disable-install-bins --enable-postproc --enable-realtime-only --enable-error-concealment --sdk-path=/Users/avesus/Development/android-ndk-r9d --disable-webm-io --disable-shared --enable-static --disable-runtime-cpu-detect --disable-neon

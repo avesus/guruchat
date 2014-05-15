@@ -31,7 +31,7 @@ extralibs =
 AS_SFX    = .s
 EXE_SFX   = 
 VCPROJ_SFX = 
-RTCD_OPTIONS = 
+RTCD_OPTIONS = --disable-neon 
 fmt_deps = sed -e 's;^\([a-zA-Z0-9_]*\)\.o;${@:.d=.o} $@;'
 ARCH_ARM=yes
 HAVE_EDSP=yes

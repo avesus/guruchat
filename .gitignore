@@ -1,5 +1,4 @@
 android/bin
-android/gen
 *.a
 *.d
 *.o
@@ -34,3 +33,4 @@ win/oslec/Debug
 win/oslec/Release
 win/Release
 win/Win32
+BuildConfig.java
