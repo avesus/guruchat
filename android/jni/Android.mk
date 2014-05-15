@@ -1,15 +1,22 @@
+APP_PLATFORM := android-10
+TARGET_PLATFORM := android-10
+
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../
+include jni/libvpx/build/make/Android.mk
+
+#LOCAL_PATH := $(call my-dir)
+#include $(CLEAR_VARS)
 
 #MY_FAMRT_PATH := ../../../common/FamRT
 #MY_CLIENT_PATH := ../../../client/nclient
 
-APP_PLATFORM := android-10
-TARGET_PLATFORM := android-10
 
-LOCAL_MODULE := libvpx
-LOCAL_SRC_FILES := $(abspath jni/)/libvpx.a
-include $(PREBUILT_STATIC_LIBRARY)
+
+#LOCAL_MODULE := libvpx
+#LOCAL_SRC_FILES := $(abspath jni/)/libvpx.a
+#include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 include $(abspath jni/)/../../thirdparty/libyuv/Android.mk

@@ -4,7 +4,7 @@
 #include <SLES/OpenSLES_Android.h>
 
 #include <SLES/OpenSLES_AndroidConfiguration.h>
-#include <SLES/OpenSLES_AndroidMetadata.h>
+//#include <SLES/OpenSLES_AndroidMetadata.h>
 
 #include "./../../thirdparty/libyuv/include/libyuv.h"
 
