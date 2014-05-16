@@ -43,7 +43,7 @@ LOCAL_SRC_FILES := guruchat.cpp #$(LOCAL_PATH)/platform/android/guruchat/jni/gur
   #../../../common/include/classlib.cpp
 
 # for native audio
-LOCAL_LDLIBS    += -lOpenSLES # -lm -llog -ljnigraphics -lGLESv1_CM -lz
-LOCAL_STATIC_LIBRARIES := codec2 libvpx libyuv_static
+LOCAL_LDLIBS    += -lOpenSLES -lvpx # -lm -llog -ljnigraphics -lGLESv1_CM -lz
+LOCAL_STATIC_LIBRARIES := codec2 libyuv_static
 
 include $(BUILD_SHARED_LIBRARY)
