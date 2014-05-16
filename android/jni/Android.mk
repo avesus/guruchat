@@ -2,9 +2,9 @@ APP_PLATFORM := android-10
 TARGET_PLATFORM := android-10
 
 LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
-LOCAL_C_INCLUDES += $(LOCAL_PATH)/../
-include jni/libvpx/build/make/Android.mk
+#include $(CLEAR_VARS)
+#LOCAL_C_INCLUDES += $(LOCAL_PATH)/../
+#include jni/libvpx/build/make/Android.mk
 
 #LOCAL_PATH := $(call my-dir)
 #include $(CLEAR_VARS)
@@ -13,10 +13,11 @@ include jni/libvpx/build/make/Android.mk
 #MY_CLIENT_PATH := ../../../client/nclient
 
 
-
-#LOCAL_MODULE := libvpx
-#LOCAL_SRC_FILES := $(abspath jni/)/libvpx.a
-#include $(PREBUILT_STATIC_LIBRARY)
+include $(CLEAR_VARS)
+LOCAL_MODULE := libvpx
+#TODO: add rule for call convigure & make
+LOCAL_SRC_FILES := $(abspath jni/)/libvpx.a
+include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 include $(abspath jni/)/../../thirdparty/libyuv/Android.mk
@@ -43,7 +44,7 @@ LOCAL_SRC_FILES := guruchat.cpp #$(LOCAL_PATH)/platform/android/guruchat/jni/gur
   #../../../common/include/classlib.cpp
 
 # for native audio
-LOCAL_LDLIBS    += -lOpenSLES -lvpx # -lm -llog -ljnigraphics -lGLESv1_CM -lz
-LOCAL_STATIC_LIBRARIES := codec2 libyuv_static
+LOCAL_LDLIBS    += -lOpenSLES # -lm -llog -ljnigraphics -lGLESv1_CM -lz
+LOCAL_STATIC_LIBRARIES := codec2 libvpx libyuv_static
 
 include $(BUILD_SHARED_LIBRARY)
