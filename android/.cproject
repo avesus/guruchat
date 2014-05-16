@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?fileVersion 4.0.0?>
-
-<cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="com.android.toolchain.gcc.976037261.259940810">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.android.toolchain.gcc.976037261.259940810" moduleId="org.eclipse.cdt.core.settings" name="Debug">
 				<externalSettings/>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -15,7 +12,7 @@
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.autotools.core.ErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -35,7 +32,6 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.android.toolchain.gcc.976037261.259940810.283244380" name="libs-armv5te-android-gcc.mk" rcbsApplicability="disable" resourcePath="jni/libs-armv5te-android-gcc.mk" toolsToInvoke=""/>
 					<fileInfo id="com.android.toolchain.gcc.976037261.259940810.289270400" name="config.mk" rcbsApplicability="disable" resourcePath="jni/config.mk" toolsToInvoke=""/>
 					<fileInfo id="com.android.toolchain.gcc.976037261.259940810.1626450816" name="Makefile" rcbsApplicability="disable" resourcePath="jni/Makefile" toolsToInvoke=""/>
 					<sourceEntries>
@@ -49,7 +45,6 @@
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.android.toolchain.gcc.976037261.958453628" moduleId="org.eclipse.cdt.core.settings" name="Release">
 				<externalSettings/>
 				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
@@ -57,7 +52,7 @@
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.autotools.core.ErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
@@ -72,12 +67,11 @@
 								</outputEntries>
 							</builder>
 							<tool id="com.android.gcc.compiler.1368398077" name="Android GCC Compiler" superClass="com.android.gcc.compiler">
-								<option id="com.android.gcc.option.includePath.1947091560" superClass="com.android.gcc.option.includePath" valueType="includePath"/>
+								<option id="com.android.gcc.option.includePath.1947091560" superClass="com.android.gcc.option.includePath"/>
 								<inputType id="com.android.gcc.inputType.417193468" superClass="com.android.gcc.inputType"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.android.toolchain.gcc.976037261.958453628.42702117" name="libs-armv5te-android-gcc.mk" rcbsApplicability="disable" resourcePath="jni/libs-armv5te-android-gcc.mk" toolsToInvoke=""/>
 					<fileInfo id="com.android.toolchain.gcc.976037261.958453628.2136766301" name="config.mk" rcbsApplicability="disable" resourcePath="jni/config.mk" toolsToInvoke=""/>
 					<fileInfo id="com.android.toolchain.gcc.976037261.958453628.1879292312" name="Makefile" rcbsApplicability="disable" resourcePath="jni/Makefile" toolsToInvoke=""/>
 					<sourceEntries>

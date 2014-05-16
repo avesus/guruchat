@@ -33,3 +33,4 @@ win/Win32
 ios/libvpx/libvpx.a
 ios/libvpx/libvpx_g.a
 BuildConfig.java
+/android/gen/com/aeonsoftech/guruchat/R.java
