@@ -33,9 +33,9 @@ void InitVp8Codec()
   cfg.rc_target_bitrate = 4000;//25 << FRAME_RESOLUTION_NUMBER;
 
   //cfg.rc_min_quantizer = 2; // WebRTC uses fixed 2
-  cfg.rc_min_quantizer = 36;//2;//2;//62;
+  cfg.rc_min_quantizer = 2;//2;//2;//62;
   // WebRTC allows setting via inst.qpMax
-  cfg.rc_max_quantizer = 2;
+  cfg.rc_max_quantizer = 36;
 
   cfg.g_timebase.num = 1;
   cfg.g_timebase.den = 30;
