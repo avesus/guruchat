@@ -100,7 +100,7 @@ void DetermineExternalAddress()
 
   sockaddr_in serverAddr = {0};
   serverAddr.sin_family = AF_INET;
-  serverAddr.sin_addr.S_un.S_addr = inet_addr("212.79.111.155");
+  serverAddr.sin_addr.S_un.S_addr = inet_addr("23.21.150.121");//"212.79.111.155");
   //serverAddr.sin_addr.S_un.S_addr = inet_addr("173.194.69.127");
   //serverAddr.sin_addr.S_un.S_addr = inet_addr("74.125.23.127");
   serverAddr.sin_port = htons(3478);
@@ -136,7 +136,14 @@ void DetermineExternalAddress()
   uint16_t externalPort = ntohs(*((uint16_t*)&recvBuffer[26])) ^ 0x2112;
   uint32_t externalIp = ntohl(*((uint32_t*)&recvBuffer[28])) ^ 0x2112A442;
 
-  StunRequest* response = (StunRequest*)recvBuffer;
+  char recvLocal[ 1280 ] = {0};
+/*
+  sockaddr_in fromLocal = {0};
+  int fromLenLoc = sizeof(fromLocal);
+  int nrecvdLoc = recvfrom(sock, recvLocal, sizeof(recvLocal),
+    0, (sockaddr*)&fromLoc, &fromLenLoc);
+*/
+  //StunRequest* response = (StunRequest*)recvBuffer;
 
 }
 
@@ -149,7 +156,9 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, wchar_t*, int)
 
   //DetermineExternalAddress();
 
-  // CaptureAudio();
+  //return 0;
+
+  //CaptureAudio();
 
   short bufIn[320];
 

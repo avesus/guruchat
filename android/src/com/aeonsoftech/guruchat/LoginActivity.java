@@ -30,6 +30,7 @@ public class LoginActivity extends Activity {
 	public native String getJniString();
 	
 	public String messageMe(String text) {
+		mEmailView.setText(text);
 	    //System.out.println(text);
 	    return text;
 	}
@@ -95,7 +96,8 @@ public class LoginActivity extends Activity {
 				new View.OnClickListener() {
 					@Override
 					public void onClick(View view) {
-						attemptLogin();
+						getJniString();
+						// attemptLogin();
 					}
 				});
 	}
@@ -112,9 +114,7 @@ public class LoginActivity extends Activity {
 	 * If there are form errors (invalid email, missing fields, etc.), the
 	 * errors are presented and no actual login attempt is made.
 	 */
-	public void attemptLogin() {
-    this.getJniString();
-  
+	public void attemptLogin() {  
 		if (mAuthTask != null) {
 			return;
 		}

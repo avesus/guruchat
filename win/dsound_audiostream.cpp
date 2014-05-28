@@ -119,7 +119,7 @@ void CaptureAudio()
   wf.wFormatTag = WAVE_FORMAT_PCM;
 
   int audioFrameLength = 5 * wf.nAvgBytesPerSec / 1000;
-  int audioBufferFrames = 1;
+  int audioBufferFrames = 2;
 
   DSCBUFFERDESC dscbd = {0};
   dscbd.dwSize = sizeof(dscbd);
@@ -131,22 +131,51 @@ void CaptureAudio()
   IDirectSoundNotify* pDSBNotify = 0;
 	hr = dscb->QueryInterface(IID_IDirectSoundNotify, (void**)&pDSBNotify);
 
+  HANDLE hEvent = ::CreateEventW(0, FALSE, FALSE, 0);
+
 	//Set Direct Sound Buffer Notify Position
-/*  DSBPOSITIONNOTIFY pPosNotify[2] = {0};
-	pPosNotify[0].dwOffset = m_WFE.nAvgBytesPerSec/2 - 1;
-	pPosNotify[1].dwOffset = 3*m_WFE.nAvgBytesPerSec/2 - 1;		
-	pPosNotify[0].hEventNotify = m_pHEvent[0];
-	pPosNotify[1].hEventNotify = m_pHEvent[1];
+  DSBPOSITIONNOTIFY pPosNotify[2] = {0};
+	pPosNotify[0].dwOffset = 0;
+	pPosNotify[1].dwOffset = audioFrameLength;		
+	pPosNotify[0].hEventNotify = hEvent;
+	pPosNotify[1].hEventNotify = hEvent;
 
 	hr = pDSBNotify->SetNotificationPositions(2, pPosNotify);
-*/
-  hr = dscb->Start(0);
-  void* ptr = 0;
-  DWORD nBytes = 0;
 
-  hr = dscb->Lock(0, 0, &ptr, &nBytes, 0, 0, 0);
+  hr = dscb->Start(0);
+
+
+
+  for(int i =0; i < 50; ++i)
+  {
+    WaitForSingleObject(hEvent, 40);
+    void* ptr = 0;
+    DWORD nBytes = 0;
+    DWORD offset = 0;
+    hr = dscb->Lock(offset, audioFrameLength, &ptr, &nBytes, 0, 0, 0);
+
+    for(int i = 0; i < audioFrameLength/2; ++i)
+    {
+      int16_t sample = ((uint16_t*)ptr)[i];
+      //audioData[i] = sample;
+      power_meter_update(&powerMeter, sample);
+    }
+
+    hr = dscb->Unlock(ptr, nBytes, 0, 0);
+    if(offset)
+    {
+      offset = 0;
+    }
+    else
+    {
+      offset = audioFrameLength;
+    }
+  }
 
   dscb->Stop();
+
+  dbm0Metered = power_meter_dbm0(&powerMeter);
+
   dscb->Release();
 
   dsc->Release();
