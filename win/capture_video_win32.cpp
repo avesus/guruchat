@@ -131,7 +131,7 @@ So, CPU_USE fixed at -5
 kbits may be increasing
 resolution and QP_MAX stepped up
 
-== P1 6.5k 32x16x3fps at QP_MAX 39
+== P1 6.5k 32x16x3fps at QP_MAX 39; 3.5k at QP_MAX 45
 
 .. higher framerate up to 30 fps, higher QP_MAX ..
 P2 18k 32x16x30fps at QP_MAX 60
@@ -182,6 +182,7 @@ P3 ?k 64x32x30fps at QP_MAX ?
 //# define VP8_KBITS_PER_SEC 160
 // for ultra low
 //# define VP8_KBITS_PER_SEC 1
+
 //# define ULTRA_LOW
 //# define EXTREME_LOW
 // for 640 and 1280

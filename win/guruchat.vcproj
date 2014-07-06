@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -205,6 +205,14 @@
 		</File>
 		<File
 			RelativePath=".\dsound_audiostream.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\nanosec.h"
+			>
+		</File>
+		<File
+			RelativePath=".\stats_calc.cpp"
 			>
 		</File>
 		<File

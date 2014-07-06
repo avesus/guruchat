@@ -139,6 +139,17 @@ double microsecs()
   return (double)_t.tv_sec + (double)_t.tv_usec/(1000*1000);
 }
 
+int64_t nanosecs()
+{
+  timespec now = {0};
+  // linux/android
+  clock_gettime(CLOCK_MONOTONIC, &now);
+  // iOS:
+  // mach_timebase_info() - as QueryPerformanceFrequency
+  // mach_absolute_time() - as QueryPerformanceCounter
+  return (int64_t) now.tv_sec * 1000000000L + now.tv_nsec;
+}
+
 uint8* camera_y_plane = 0;
 uint8* camera_u_plane = 0;
 uint8* camera_v_plane = 0;
