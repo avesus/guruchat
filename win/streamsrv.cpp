@@ -267,6 +267,10 @@ int Receiver()
 
   printf("My port: %d\n", recvOnPort);
 
+  printf("Another port:\n");
+  scanf_s("%15s", anotherPort, 16);
+  sendToPort = atoi(anotherPort);
+
 /*
   sockaddr_in mcAddr = {0};
   mcAddr.sin_family = AF_INET;
@@ -329,12 +333,9 @@ int main()
   scanf_s("%63s", multicastSourceIp, 64);
   printf("Broadcast to (ex. 239.192.100.2):\n");
   scanf_s("%63s", multicastDestIp, 64);
+
   printf("Another IP:\n");
   scanf_s("%63s", anotherIp, 64);
-
-  printf("Another port:\n");
-  scanf_s("%15s", anotherPort, 16);
-  sendToPort = atoi(anotherPort);
 
   Receiver();
 
