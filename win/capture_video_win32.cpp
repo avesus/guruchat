@@ -64,16 +64,17 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 
 #define SHOW_STATS
 //# define BYPASS
+//# define SHOW_BYPASS
 # define YUV_BILINEAR
 # define CODEC_FPS 30
-//# define DROP_30_TO_25 99999999// 6
+//# define DROP_30_TO_25 6//99999999// 6
 
 // show first 1 in DROP_30_TO_3 frames
 //# define DROP_30_TO_3 10 //10
-//# define MAXFRAME 5000 //(1480-28)
+//# define MAXFRAME 300 //(1480-28)*16 //(1480-28)
 //# define DROPFRAMEBEFORE 107
-//# define DROPFRAMESHOW 7
-//# define DROPFRAMEHIDE 4
+//# define DROPFRAMESHOW 3
+//# define DROPFRAMEHIDE 2
 # define OPUS_BYTES 0//30
 
 //# define HI_Q_PROFILE // 400k
@@ -88,7 +89,7 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 // soft gprs
 //# define GPRS_PROFILE // 30k (up to 50)
 
-// hard gprs, needs 3 FPS
+// hard gprs, needs 3 FPS, 6.5k, very low q
 //# define MTU_LO_PROFILE
 
 
@@ -105,15 +106,90 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 // VBR!!!
 # endif
 
+/*
+Maximum quality
+
+Minimum bitrate (900k max)
+# define VP8_THREADS 2
+640x480x30fps
+# define VP8_QP_MAX 39
+# define VP8_QP_MIN 0
+# define VP8_KBITS_PER_SEC 800
+// Main secret for 800kbit at 640x480x30 hi-q (high cpu load):
+# define VP8_CPU_USE -3
+
+Normal bitrate 1200kbit, but low CPU load:
+with 2 threads there are image distortions!
+# define VP8_THREADS 1
+640x480x30fps
+# define VP8_QP_MAX 39
+# define VP8_QP_MIN 0
+# define VP8_KBITS_PER_SEC 800
+# define VP8_CPU_USE -5
+
+So, CPU_USE fixed at -5
+kbits may be increasing
+resolution and QP_MAX stepped up
+
+== P1 6.5k 32x16x3fps at QP_MAX 39; 3.5k at QP_MAX 45
+
+.. higher framerate up to 30 fps, higher QP_MAX ..
+P2 18k 32x16x30fps at QP_MAX 60
+
+.. lower QP_MAX ..
+35k - 64x32x30fps at QP_MAX 63
+.. lower QP_MAX ..
+50k - 80x48x30fps at QP_MAX 63
+P3 ?k 64x32x30fps at QP_MAX ?
+  50k 32x16x30fps at QP_MAX 39
+
+80k - 112x64x30fps at QP_MAX 63
+
+150k - 160x96x30fps at QP_MAX 63
+
+220k - 240x144x30fps at QP_MAX 63
+
+320k - 320x192x30fps at QP_MAX 63
+  400k - 160x96x30fps at QP_MAX 39
+
+700k - 480x272x30fps at QP_MAX 63
+
+*/
+
 # ifdef HI_Q_W_320 // 640x480 hi-q
-# define FRAME_RESOLUTION_NUMBER 4
-# define VP8_QP_MAX 31
-# define VP8_QP_MIN 1
-# define VP8_KBITS_PER_SEC 300///350 //700
-//# define VP8_CPU_USE -3
-# define VP8_CPU_USE -15
-//# define MAX_KEYFRAME_DIST 999999
-// VBR!!!
+# define FRAME_RESOLUTION_NUMBER 6//6+
+
+// lower EDGE - 8.8k; lower GPRS - 8k
+// 6k 32x16x3fps
+// 50k 32x16x30fps
+//# define VP8_QP_MAX 45
+//# define VP8_QP_MAX 63
+// 22k on ultra low res (64x32), 3 fps,
+// 10k on 80x48, 3 fps
+// 70k on ultra low res (64x32), 30 fps
+// 130k on 80x48
+// at w640 maybe distortions when 2 threads
+# define VP8_QP_MAX 39 //24//24//24//24
+//# define VP8_QP_MAX 24
+# define VP8_QP_MIN 0//24//24
+// for 640x368 up to 2Mbit
+//# define VP8_KBITS_PER_SEC 1//90000//1//1
+// for 1280x720
+# define VP8_KBITS_PER_SEC 800
+// w160 110k on 3 fps!
+// w160 90k 30fps when QP_MAX = 63
+// for w160 up to 400k
+//# define VP8_KBITS_PER_SEC 160
+// for ultra low
+//# define VP8_KBITS_PER_SEC 1
+
+//# define ULTRA_LOW
+//# define EXTREME_LOW
+// for 640 and 1280
+# define VP8_CPU_USE -5//-5//-5 //-5
+// for w160 ?
+//# define VP8_CPU_USE 0
+
 # endif
 
 // soft mtu mode, 90k
@@ -162,14 +238,19 @@ const VIDEO_STREAM_RESOLUTION modes[] = {
 # endif
 
 # define MAX_KEYFRAME_DIST CODEC_FPS / 3
-# define VP8_KEYFRAME_PERCENT MAX_KEYFRAME_DIST * 100
+# define VP8_KEYFRAME_PERCENT 0 //MAX_KEYFRAME_DIST * 100
 
 
+const VIDEO_STREAM_RESOLUTION extremeLowMode = {32, 16};
 const VIDEO_STREAM_RESOLUTION lowMode = {64, 32};
 //const VIDEO_STREAM_RESOLUTION lowMode = {64, 48};
 
-# ifdef MTU_LO_PROFILE
+# if defined MTU_LO_PROFILE
   const VIDEO_STREAM_RESOLUTION* mode = &lowMode;
+# elif defined ULTRA_LOW
+  const VIDEO_STREAM_RESOLUTION* mode = &lowMode;
+# elif defined EXTREME_LOW
+  const VIDEO_STREAM_RESOLUTION* mode = &extremeLowMode;
 # else
   const VIDEO_STREAM_RESOLUTION* mode = &modes[FRAME_RESOLUTION_NUMBER];
 # endif
@@ -177,10 +258,10 @@ const VIDEO_STREAM_RESOLUTION lowMode = {64, 32};
 int compressedVideoWidth = mode->w;//160;//64; // 128 // 8 // 5
 int compressedVideoHeight = mode->h;//compressedVideoWidth * 9 / 16 / 16 * 16; // 96 // 6 // 4
 
-const int viewportW = 1024;
+const int viewportW = ::GetSystemMetrics(SM_CXSCREEN);
 const int viewportH = viewportW * 9 / 16;//compressedVideoHeight / compressedVideoWidth;
 
-# define VP8_THREADS 1 //1
+# define VP8_THREADS 1
 
 HWND viewport = 0;
 
@@ -198,6 +279,9 @@ uint8* v_plane = 0;
 
 void* rgbFrame = 0; // Intermediate surface
 void* rgbViewport = 0; // Viewport surface
+
+void* rgbFrameBypass = 0; // Intermediate surface
+void* rgbViewportBypass = 0; // Viewport surface
 
 vpx_codec_ctx_t vp8enc = {0};
 vpx_codec_ctx_t vp8dec = {0};
@@ -370,8 +454,8 @@ unsigned int __stdcall EncoderThread(void*)
 
     const vpx_codec_err_t res = vpx_codec_encode(
       &vp8enc, &frame, currFrameTime,
-      currFrameDuration ? currFrameDuration/10 : 400000, flag, 8000);
-      //VPX_DL_REALTIME);
+      currFrameDuration ? currFrameDuration/10 : 400000, flag,// 8000);
+      VPX_DL_REALTIME);
 
     vpx_codec_iter_t iter = 0;
     const vpx_codec_cx_pkt_t* pkt = vpx_codec_get_cx_data(&vp8enc, &iter);
@@ -392,6 +476,9 @@ IDirectDraw7* dd = 0;
 
 unsigned int __stdcall RenderThread(void*)
 {
+  HANDLE thisThread = GetCurrentThread();
+  ::SetThreadPriority(thisThread, THREAD_PRIORITY_TIME_CRITICAL);
+
   while(true)
   {
     WaitForSingleObject(wakeDecoder,INFINITE);
@@ -426,6 +513,8 @@ unsigned int __stdcall RenderThread(void*)
     totalSent += pcktsiz;
     totalSentNoVideo += pcktsiz - vp8compressedSize;
 
+    bool dropped = false;
+
   # ifndef BYPASS
  
     unsigned char* encPacket = vp8compressedBuf;
@@ -435,7 +524,7 @@ unsigned int __stdcall RenderThread(void*)
     ++frameNum;
     if(frameNum < DROPFRAMEBEFORE)
     {
-      continue;
+      dropped = true;
     }
 # endif
 
@@ -448,7 +537,7 @@ unsigned int __stdcall RenderThread(void*)
       }
       if(frameNum++ < 0)
       {
-        continue;
+        dropped = true;
       }
     }
 # endif
@@ -464,29 +553,43 @@ unsigned int __stdcall RenderThread(void*)
       if(firstTime)
       {
         firstTime = false;
-        continue;
+        dropped = true;
       }
     }
   # endif
 
-    vpx_codec_err_t result = vpx_codec_decode(&vp8dec, encPacket, vp8compressedSize,
-      0, 0);
     vpx_image_t* img = 0;
-    if(VPX_CODEC_OK == result)
+
+    if(!dropped)
     {
-      vpx_codec_iter_t iter = 0;
-      img = vpx_codec_get_frame(&vp8dec, &iter);
+      vpx_codec_err_t result = vpx_codec_decode(&vp8dec, encPacket, vp8compressedSize,
+        0, 0);
+      
+      
+      if(VPX_CODEC_OK == result)
+      {
+        vpx_codec_iter_t iter = 0;
+        img = vpx_codec_get_frame(&vp8dec, &iter);
+      }
     }
 
   # endif
 
-  # ifdef BYPASS
-      libyuv::I420ToARGB(
-        y_plane, compressedVideoWidth,
-        u_plane, compressedVideoWidth>>1,
-        v_plane, compressedVideoWidth>>1,
-        (uint8*)rgbFrame, compressedVideoWidth*4, compressedVideoWidth, compressedVideoHeight);
-  # else
+  //# ifdef BYPASS
+# ifdef SHOW_BYPASS
+    libyuv::I420ToARGB(
+      y_plane, compressedVideoWidth,
+      u_plane, compressedVideoWidth>>1,
+      v_plane, compressedVideoWidth>>1,
+      (uint8*)rgbFrameBypass, compressedVideoWidth*4, compressedVideoWidth, compressedVideoHeight);
+    libyuv::ARGBScale((uint8*)rgbFrameBypass, compressedVideoWidth * 4,
+      compressedVideoWidth, -compressedVideoHeight,
+      //(uint8*)ddsd.lpSurface,
+      (uint8*)rgbViewportBypass,
+      viewportW * 4, viewportW, viewportH,
+      libyuv::kFilterBilinear);
+# endif
+  //# else
     if(img)
     {
       libyuv::I420ToARGB(
@@ -495,7 +598,7 @@ unsigned int __stdcall RenderThread(void*)
         img->planes[2], img->stride[2],
         (uint8*)rgbFrame, compressedVideoWidth*4, compressedVideoWidth, compressedVideoHeight);
     }
-  # endif
+  //# endif
 
     //DDSURFACEDESC2 ddsd = {0};
     //ddsd.dwSize = sizeof(ddsd);
@@ -533,14 +636,45 @@ unsigned int __stdcall RenderThread(void*)
     //bmi.bmiHeader.biHeight = viewportH;
     bmi.bmiHeader.biHeight = srcH;
 
-  //  dd->WaitForVerticalBlank(0, 0);
+    //dd->WaitForVerticalBlank(DDWAITVB_BLOCKBEGIN, 0);
 
     HDC dc = GetDC(viewport);
-    StretchDIBits(dc, 0, 0, viewportW, viewportH, 0, 0,
+# ifdef SHOW_BYPASS
+    StretchDIBits(dc, 0, 0, viewportW,
+      viewportH/2,
+      0, 0,
+      srcW,
+      abs(srcH)/2,
+  # ifdef YUV_BILINEAR
+      rgbViewportBypass,
+  # else
+      rgbFrame,
+  # endif
+      &bmi, DIB_RGB_COLORS, SRCCOPY);
+# endif
+
+    StretchDIBits(dc, 0,
+# ifdef SHOW_BYPASS
+      viewportH/2,
+# else
+      0,
+# endif
+      viewportW,
+# ifdef SHOW_BYPASS
+      viewportH/2,
+# else
+      viewportH,
+# endif
+      0, 0,
       //viewportW,
       srcW,
       //viewportH,
+# ifdef SHOW_BYPASS
+      abs(srcH)/2,
+# else
       abs(srcH),
+# endif
+
   # ifdef YUV_BILINEAR
       rgbViewport,
   # else
@@ -572,6 +706,7 @@ unsigned int __stdcall RenderThread(void*)
       1000000.0f/float(mediumDuration));
     TextOutW(dc, 4, 4, awzMsg, msgLen);
   # endif
+
     ReleaseDC(viewport, dc);
   }
   return 0;
@@ -581,6 +716,8 @@ void InitVp8Codec()
 {
   vpx_codec_iface_t* vp8encIface = vpx_codec_vp8_cx();
   vpx_codec_iface_t* vp8decIface = vpx_codec_vp8_dx();
+  //vpx_codec_iface_t* vp8encIface = vpx_codec_vp9_cx();
+  //vpx_codec_iface_t* vp8decIface = vpx_codec_vp9_dx();
 
   vpx_codec_enc_cfg_t cfg = {0};
   vpx_codec_err_t res = vpx_codec_enc_config_default(vp8encIface, &cfg, 0);
@@ -631,7 +768,7 @@ void InitVp8Codec()
     //VPX_CODEC_USE_PSNR);//VPX_CODEC_USE_OUTPUT_PARTITION);
 
   // -12 on ARM, from -6 to -3 usually
-  vpx_codec_control(&vp8enc, VP8E_SET_STATIC_THRESHOLD, 0);
+  vpx_codec_control(&vp8enc, VP8E_SET_STATIC_THRESHOLD, 800);
   vpx_codec_control(&vp8enc, VP8E_SET_CPUUSED, VP8_CPU_USE);
   vp8e_token_partitions partitions = VP8_ONE_TOKENPARTITION;
   vpx_codec_control(&vp8enc, VP8E_SET_TOKEN_PARTITIONS,
@@ -658,15 +795,41 @@ void InitVp8Codec()
     VPX_CODEC_USE_POSTPROC | VPX_CODEC_USE_ERROR_CONCEALMENT);
 }
 
+HWND CreateVideoWindow()
+{
+  struct Handler
+  {
+    static LRESULT CALLBACK VideoWindowHandler(HWND wnd, UINT msg, WPARAM w, LPARAM l)
+    {
+      if(WM_CLOSE == msg)
+      {
+        ::PostQuitMessage(0);
+      }
+      return ::DefWindowProcW(wnd, msg, w, l);
+    }
+  };
+
+  WNDCLASSEXW wc = {0};
+  wc.cbSize = sizeof(wc);
+  wc.hbrBackground = 0;
+  wc.hCursor = LoadCursor(0, IDC_ARROW);
+  wc.hInstance = GetModuleHandle(0);
+  wc.lpfnWndProc = Handler::VideoWindowHandler;
+  wc.lpszClassName = L"MyVideoWindow";
+  RegisterClassExW(&wc);
+
+  return CreateWindowW(L"MyVideoWindow", L"", WS_POPUP|WS_VISIBLE|WS_MINIMIZEBOX|WS_SYSMENU,
+    0, (::GetSystemMetrics(SM_CYSCREEN)-viewportH)>>1,
+    viewportW, viewportH, 0, 0, GetModuleHandle(0), 0);
+}
+
 void StartVideoCapture()
 {
   LARGE_INTEGER pf = {0};
   ::QueryPerformanceFrequency(&pf);
   pcFrequency = pf.QuadPart;
 
-  viewport = CreateWindowW(L"STATIC", L"", WS_POPUP|WS_VISIBLE,
-    0, (600-viewportH)>>1,
-    viewportW, viewportH, 0, 0, GetModuleHandle(0), 0);
+  viewport = CreateVideoWindow();
 
   // src planes for encode
   y_plane = (unsigned char*)malloc(compressedVideoWidth*compressedVideoHeight);
@@ -677,6 +840,9 @@ void StartVideoCapture()
 
   rgbFrame = malloc(compressedVideoHeight*compressedVideoWidth*4);
   rgbViewport = malloc(viewportW*viewportH*4);
+
+  rgbFrameBypass = malloc(compressedVideoHeight*compressedVideoWidth*4);
+  rgbViewportBypass = malloc(viewportW*viewportH*4);
 
   HRESULT hr = CoInitialize(0);
 
@@ -723,6 +889,8 @@ void StartVideoCapture()
     &cams, 0) : hr;
   IMoniker* mon = 0;
   hr = cams->Next(1, &mon, 0); // first camera
+  //hr = cams->Next(1, &mon, 0); // second camera
+  //hr = cams->Next(1, &mon, 0); // third camera
 
   // Create camera
   IBaseFilter* cam = 0;
@@ -774,17 +942,24 @@ void StartVideoCapture()
 
   float fps = float(captureFmt->dwBitRate)
     / float(captureFmt->bmiHeader.biSizeImage * 8);// bitrate for 640x480 - 147456000
-/*
-  captureFmt->bmiHeader.biWidth = 160;
-  captureFmt->bmiHeader.biHeight = 120;
-  //captureFmt->AvgTimePerFrame <<= 1;
+
+  //captureFmt->bmiHeader.biWidth = 160;
+  captureFmt->bmiHeader.biWidth = 640;
+  //captureFmt->bmiHeader.biWidth = 1280;
+  //captureFmt->bmiHeader.biWidth = 800;
+  //captureFmt->bmiHeader.biHeight = 120;
+  captureFmt->bmiHeader.biHeight = 360;
+  //captureFmt->bmiHeader.biHeight = 720;
+  //captureFmt->bmiHeader.biHeight = 448;
+  captureFmt->AvgTimePerFrame = 333333;
+  //captureFmt->AvgTimePerFrame = 1000000;
   captureFmt->bmiHeader.biSizeImage
     = captureFmt->bmiHeader.biWidth * captureFmt->bmiHeader.biHeight
     * captureFmt->bmiHeader.biBitCount / 8;
   captureFmt->dwBitRate
     = (10000000/captureFmt->AvgTimePerFrame) * captureFmt->bmiHeader.biSizeImage * 8;
-  cfg->SetFormat(currFmt);
-*/
+  hr = cfg->SetFormat(currFmt);
+
   fps = float(captureFmt->dwBitRate)
     / float(captureFmt->bmiHeader.biSizeImage * 8);
 
@@ -845,11 +1020,12 @@ void StartVideoCapture()
     MSG msg = {0};
     while(GetMessage(&msg, 0, 0, 0))
     {
+      TranslateMessage(&msg);
       DispatchMessage(&msg);
-      if(msg.message == WM_SYSCOMMAND)
+/*      if(msg.message == WM_SYSCOMMAND)
       {
         ExitProcess(0);
-      }
+      }*/
     }
   }
 }

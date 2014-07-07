@@ -38,7 +38,7 @@ endif
 
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../thirdparty/libyuv/include
 LOCAL_MODULE    := guruchat
-LOCAL_SRC_FILES := guruchat.cpp #$(LOCAL_PATH)/platform/android/guruchat/jni/guruchat.cpp
+LOCAL_SRC_FILES := guruchat.cpp video_capture_android.cpp #$(LOCAL_PATH)/platform/android/guruchat/jni/guruchat.cpp
 
   #$(MY_CLIENT_PATH)/common/RolEventParser.cpp
   #../../../common/include/classlib.cpp

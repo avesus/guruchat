@@ -48,7 +48,7 @@
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				DebugInformationFormat="4"
+				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -61,9 +61,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				LinkIncremental="2"
+				LinkIncremental="1"
 				GenerateDebugInformation="true"
-				SubSystem="2"
+				SubSystem="1"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -205,6 +205,14 @@
 		</File>
 		<File
 			RelativePath=".\dsound_audiostream.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\nanosec.h"
+			>
+		</File>
+		<File
+			RelativePath=".\stats_calc.cpp"
 			>
 		</File>
 		<File
